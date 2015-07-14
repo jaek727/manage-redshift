@@ -8,17 +8,18 @@ The script below only gives the user the option to save an existing cluster to a
 
 The script will allow you to:
 
-(1) List clusters
-(2) List snapshots
-(3) Create cluster from snapshot
-(4) Create snapshot from cluster (also deletes the cluster)
-(5) Quit
+* (1) List clusters
+* (2) List snapshots
+* (3) Create cluster from snapshot
+* (4) Create snapshot from cluster (also deletes the cluster)
+* (5) Quit
 
 Prerequisite: Install the AWS Command Line API.
 
 Here are some additional useful Redshift API commands that are not included in the script above:
 
-# Create a cluster
+*** Create a cluster ***
+`
 aws redshift create-cluster  --db-name 'mydb' \
     --cluster-identifier "my-cluster" \ 
     --cluster-type 'multi-node' \
@@ -32,7 +33,8 @@ aws redshift create-cluster  --db-name 'mydb' \
     --vpc-security-group-ids 'sg-12345678' \
     --number-of-nodes '2'  \
     --master-user-password [redacted_password]
- 
-# Delete cluster without making a snapshot (this operation takes some time to finish)
+` 
+*** Delete cluster without making a snapshot (this operation takes some time to finish) ***
+`
 aws redshift delete-cluster --cluster-identifier my-cluster --skip-final-cluster-snapshot
-
+`
