@@ -18,23 +18,23 @@ Prerequisite: Install the AWS Command Line API.
 
 Here are some additional useful Redshift API commands that are not included in the script above:
 
-*** Create a cluster ***
+**Create a cluster**
 `
-aws redshift create-cluster  --db-name 'mydb' \
-    --cluster-identifier "my-cluster" \ 
-    --cluster-type 'multi-node' \
-    --node-type 'dc1.large'  \
-    --master-username 'jae'  \
-    --preferred-maintenance-window 'Mon:19:00-Mon:19:30'  \ 
-    --automated-snapshot-retention-period '0'  \
-    --port '5439'  \
-    --allow-version-upgrade   \
-    --cluster-subnet-group-name 'my-redshift-subnet' \
-    --vpc-security-group-ids 'sg-12345678' \
-    --number-of-nodes '2'  \
+aws redshift create-cluster  --db-name 'mydb' 
+    --cluster-identifier "my-cluster"  
+    --cluster-type 'multi-node' 
+    --node-type 'dc1.large'  
+    --master-username 'jae'  
+    --preferred-maintenance-window 'Mon:19:00-Mon:19:30'  
+    --automated-snapshot-retention-period '0'  
+    --port '5439'  
+    --allow-version-upgrade   
+    --cluster-subnet-group-name 'my-redshift-subnet' 
+    --vpc-security-group-ids 'sg-12345678' 
+    --number-of-nodes '2'  
     --master-user-password [redacted_password]
 ` 
-*** Delete cluster without making a snapshot (this operation takes some time to finish) ***
+**Delete cluster without making a snapshot (this operation takes some time to finish)**
 `
 aws redshift delete-cluster --cluster-identifier my-cluster --skip-final-cluster-snapshot
 `
